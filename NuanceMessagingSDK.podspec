@@ -4,10 +4,11 @@ Pod::Spec.new do |s|
   s.summary          = 'This is NMessaging SDK for iOS.'
   s.description      = 'The NMessaging SDK provides messaging capabilities for iOS apps.'
   s.homepage         = 'https://github.com/NativeLCW/ios-lib'  # Your GitHub repo URL
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+ # add this when we have LICENSE file
+ # s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'nativelcw' => 'nativelcw3@gmail.com' }
   
-  # The source URL and tag you used for the release
+  # The source URL and tag used for the release
   s.source           = { :git => 'https://github.com/NativeLCW/ios-lib.git', :tag => 'v0.0.2' }
 
   s.platform = :ios, '10.0'
