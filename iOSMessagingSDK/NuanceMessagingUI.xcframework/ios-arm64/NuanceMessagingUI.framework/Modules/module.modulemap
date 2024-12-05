@@ -1,0 +1,11 @@
+framework module NuanceMessagingUI {
+  umbrella header "NuanceMessagingUI.h"
+  export *
+
+  module * { export * }
+}
+
+module NuanceMessagingUI.Swift {
+  header "NuanceMessagingUI-Swift.h"
+  requires objc
+}

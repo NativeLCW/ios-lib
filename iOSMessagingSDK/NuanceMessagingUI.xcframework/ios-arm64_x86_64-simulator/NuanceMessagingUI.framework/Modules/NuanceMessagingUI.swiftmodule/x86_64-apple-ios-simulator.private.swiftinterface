@@ -1,0 +1,1249 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name NuanceMessagingUI
+import AVFoundation
+import DeveloperToolsSupport
+import Foundation
+import MobileCoreServices
+import NinaCobra
+import NuanceGuide
+import NuanceMessagingCore
+@_exported import NuanceMessagingUI
+import Swift
+import SwiftUI
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class RingerSound {
+  public static let sharedInstance: NuanceMessagingUI.RingerSound
+  public func initRingerData(soundData: Foundation.NSData?)
+  public func playRinger()
+  public func stopRinger()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ChatData {
+  public static let shared: NuanceMessagingUI.ChatData
+  public var conversationsArray: Foundation.NSMutableArray?
+  public func addMessage(response: NuanceMessagingCore.GetMessageResponse)
+  @objc deinit
+}
+public enum ReachabilityError : Swift.Error {
+  case failedToCreateWithAddress(Darwin.sockaddr, Swift.Int32)
+  case failedToCreateWithHostname(Swift.String, Swift.Int32)
+  case unableToSetCallback(Swift.Int32)
+  case unableToSetDispatchQueue(Swift.Int32)
+  case unableToGetFlags(Swift.Int32)
+}
+@available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
+public let ReachabilityChangedNotification: Foundation.NSNotification.Name
+extension Foundation.NSNotification.Name {
+  public static let reachabilityChanged: Foundation.Notification.Name
+}
+public class Reachability {
+  public typealias NetworkReachable = (NuanceMessagingUI.Reachability) -> Swift.Void
+  public typealias NetworkUnreachable = (NuanceMessagingUI.Reachability) -> Swift.Void
+  public enum Connection : Swift.CustomStringConvertible {
+    @available(*, deprecated, renamed: "unavailable")
+    case none
+    case unavailable, wifi, cellular
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: NuanceMessagingUI.Reachability.Connection, b: NuanceMessagingUI.Reachability.Connection) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var whenReachable: NuanceMessagingUI.Reachability.NetworkReachable?
+  public var whenUnreachable: NuanceMessagingUI.Reachability.NetworkUnreachable?
+  @available(*, deprecated, renamed: "allowsCellularConnection")
+  final public let reachableOnWWAN: Swift.Bool
+  public var allowsCellularConnection: Swift.Bool
+  public var notificationCenter: Foundation.NotificationCenter
+  @available(*, deprecated, renamed: "connection.description")
+  public var currentReachabilityString: Swift.String {
+    get
+  }
+  @available(*, unavailable, renamed: "connection")
+  public var currentReachabilityStatus: NuanceMessagingUI.Reachability.Connection {
+    get
+  }
+  public var connection: NuanceMessagingUI.Reachability.Connection {
+    get
+  }
+  required public init(reachabilityRef: SystemConfiguration.SCNetworkReachability, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main)
+  convenience public init(hostname: Swift.String, queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
+  convenience public init(queueQoS: Dispatch.DispatchQoS = .default, targetQueue: Dispatch.DispatchQueue? = nil, notificationQueue: Dispatch.DispatchQueue? = .main) throws
+  @objc deinit
+}
+extension NuanceMessagingUI.Reachability {
+  public func startNotifier() throws
+  public func stopNotifier()
+  @available(*, deprecated, message: "Please use `connection != .none`")
+  public var isReachable: Swift.Bool {
+    get
+  }
+  @available(*, deprecated, message: "Please use `connection == .cellular`")
+  public var isReachableViaWWAN: Swift.Bool {
+    get
+  }
+  @available(*, deprecated, message: "Please use `connection == .wifi`")
+  public var isReachableViaWiFi: Swift.Bool {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class LoadingViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class CallToChatPropertieClass : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc public var titleBarColor: UIKit.UIColor
+  @objc public var infoLabelText: Swift.String
+  @objc public var infoLabelTopMargin: Swift.Int
+  @objc public var infoLabelLeftMargin: Swift.Int
+  @objc public var infoLabelRightMargin: Swift.Int
+  @objc public var infoLabelTextColor: UIKit.UIColor
+  @objc public var infoLabelBackgroundColor: UIKit.UIColor
+  @objc public var infoLabelFontStyle: UIKit.UIFont
+  @objc public var centerImageTopMargin: Swift.Int
+  @objc public var centerImageLeftMargin: Swift.Int
+  @objc public var centerImageRightMargin: Swift.Int
+  @objc public var centerImageHeight: Swift.Int
+  @objc public var centerImageBackgroundColor: UIKit.UIColor
+  @objc public var centerImageData: Foundation.Data?
+  @objc public var horizontalSeperatorHeight: Swift.Int
+  @objc public var horizontalSeperatorCornerRadius: Swift.Int
+  @objc public var horizontalSeperatorBorderWidth: Swift.Int
+  @objc public var horizontalSeperatorBorderColor: UIKit.UIColor
+  @objc public var horizontalSeperatorLeftMargin: Swift.Int
+  @objc public var horizontalSeperatorRightMargin: Swift.Int
+  @objc public var horizontalSeperatorColor: UIKit.UIColor
+  @objc public var horizontalSeperatorBottomMargin: Swift.Int
+  @objc public var connectButtonTitle: Swift.String
+  @objc public var connectButtonBottomMargin: Swift.Int
+  @objc public var connectButtonRightMargin: Swift.Int
+  @objc public var connectButtonLeftMargin: Swift.Int
+  @objc public var connectButtonHeight: Swift.Int
+  @objc public var connectButtonTextColor: UIKit.UIColor
+  @objc public var connectButtonBackgroundColor: UIKit.UIColor
+  @objc public var connectButtonTextFontStyle: UIKit.UIFont
+  @objc public var connectButtonbackgroundImage: Foundation.Data?
+  @objc public var returnButtonTitle: Swift.String
+  @objc public var returnButtonBottomMargin: Swift.Int
+  @objc public var returnButtonRightMargin: Swift.Int
+  @objc public var returnButtonLeftMargin: Swift.Int
+  @objc public var returnButtonHeight: Swift.Int
+  @objc public var returnButtonTextColor: UIKit.UIColor
+  @objc public var returnButtonBackgroundColor: UIKit.UIColor
+  @objc public var returnButtonTextFontStyle: UIKit.UIFont
+  @objc public var returnButtonbackgroundImage: Foundation.Data?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ChatToCallPropertieClass : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc public var titleBarColor: UIKit.UIColor
+  @objc public var infoLabelText: Swift.String
+  @objc public var infoLabelTopMargin: Swift.Int
+  @objc public var infoLabelLeftMargin: Swift.Int
+  @objc public var infoLabelRightMargin: Swift.Int
+  @objc public var infoLabelTextColor: UIKit.UIColor
+  @objc public var infoLabelBackgroundColor: UIKit.UIColor
+  @objc public var infoLabelFontStyle: UIKit.UIFont
+  @objc public var centerImageTopMargin: Swift.Int
+  @objc public var centerImageLeftMargin: Swift.Int
+  @objc public var centerImageRightMargin: Swift.Int
+  @objc public var centerImageHeight: Swift.Int
+  @objc public var centerImageBackgroundColor: UIKit.UIColor
+  @objc public var centerImageData: Foundation.Data?
+  @objc public var horizontalSeperatorHeight: Swift.Int
+  @objc public var horizontalSeperatorCornerRadius: Swift.Int
+  @objc public var horizontalSeperatorBorderWidth: Swift.Int
+  @objc public var horizontalSeperatorBorderColor: UIKit.UIColor
+  @objc public var horizontalSeperatorLeftMargin: Swift.Int
+  @objc public var horizontalSeperatorRightMargin: Swift.Int
+  @objc public var horizontalSeperatorColor: UIKit.UIColor
+  @objc public var horizontalSeperatorBottomMargin: Swift.Int
+  @objc public var connectButtonTitle: Swift.String
+  @objc public var connectButtonBottomMargin: Swift.Int
+  @objc public var connectButtonRightMargin: Swift.Int
+  @objc public var connectButtonLeftMargin: Swift.Int
+  @objc public var connectButtonHeight: Swift.Int
+  @objc public var connectButtonTextColor: UIKit.UIColor
+  @objc public var connectButtonBackgroundColor: UIKit.UIColor
+  @objc public var connectButtonTextFontStyle: UIKit.UIFont
+  @objc public var connectButtonbackgroundImage: Foundation.Data?
+  @objc public var returnButtonTitle: Swift.String
+  @objc public var returnButtonBottomMargin: Swift.Int
+  @objc public var returnButtonRightMargin: Swift.Int
+  @objc public var returnButtonLeftMargin: Swift.Int
+  @objc public var returnButtonHeight: Swift.Int
+  @objc public var returnButtonTextColor: UIKit.UIColor
+  @objc public var returnButtonBackgroundColor: UIKit.UIColor
+  @objc public var returnButtonTextFontStyle: UIKit.UIFont
+  @objc public var returnButtonbackgroundImage: Foundation.Data?
+  @objc deinit
+}
+public func messageBackgroudImageCapInsets(image: UIKit.UIImage?) -> UIKit.UIEdgeInsets?
+public func clearMessagingData()
+public func initSounds(soundData: Foundation.NSData?, name: Foundation.NSString) -> Foundation.NSData?
+public func parseJSON(val: Swift.String) -> Foundation.NSDictionary?
+@objc public enum CallButtonPosition : Swift.Int {
+  case microPhone = 0
+  case call = 1
+  case speaker = 2
+  case none = -10
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class CallSupportProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var callToChatSwitcherProperties: NuanceMessagingUI.CallToChatPropertieClass
+  @objc public var microphoneDeniedScreenTitleBarColor: UIKit.UIColor
+  @objc public var callExitScreenTitleBarColor: UIKit.UIColor
+  @objc public var callFailedScreenTitleBarColor: UIKit.UIColor
+  @objc public var callButtonsHeight: Swift.Int
+  @objc public var ringerSoundData: Foundation.NSData?
+  @objc public var callButtonsSeperatorHeight: Swift.Int
+  @objc public var callButtonsSeperatorCornerRadius: Swift.Int
+  @objc public var callButtonsSeperatorBorderWidth: Swift.Int
+  @objc public var callButtonsSeperatorBorderColor: UIKit.UIColor
+  @objc public var callButtonsSeperatorLeftMargin: Swift.Int
+  @objc public var callButtonsSeperatorRightMargin: Swift.Int
+  @objc public var callButtonsSeperatorBottomMargin: Swift.Int
+  @objc public var callButtonsSeperatorColor: UIKit.UIColor
+  @objc public var detachCallerIconHeight: Swift.Int
+  @objc public var detachCallerIconCornerRadius: Swift.Int
+  @objc public var detachCallerIconBorderWidth: Swift.Int
+  @objc public var detachCallerIconBorderColor: UIKit.UIColor
+  @objc public var detachCallerIcon: Swift.Bool
+  @objc public var callerIconHungTitle: Swift.String
+  @objc public var callerIconDialTitle: Swift.String
+  @objc public var callerDialIconData: Foundation.Data?
+  @objc public var callerHungIconData: Foundation.Data?
+  @objc public var callerIconTopMargin: Swift.Int
+  @objc public var callerIconLeftMargin: Swift.Int
+  @objc public var callerIconRightMargin: Swift.Int
+  @objc public var callerLabelBottomMargin: Swift.Int
+  @objc public var callerIconTextColor: UIKit.UIColor
+  @objc public var callerIconBackgroundColor: UIKit.UIColor
+  @objc public var callerIconTextFontStyle: UIKit.UIFont
+  @objc public var microphoneIconMuteTitle: Swift.String
+  @objc public var microphoneIconUnMuteTitle: Swift.String
+  @objc public var microphoneUnmuteIconData: Foundation.Data?
+  @objc public var microphoneMuteIconData: Foundation.Data?
+  @objc public var microphoneIconTopMargin: Swift.Int
+  @objc public var microphoneIconRightMargin: Swift.Int
+  @objc public var microphoneIconLeftMargin: Swift.Int
+  @objc public var microphoneLabelBottomMargin: Swift.Int
+  @objc public var microphoneIconTextColor: UIKit.UIColor
+  @objc public var microphoneIconBackgroundColor: UIKit.UIColor
+  @objc public var microphoneIconTextFontStyle: UIKit.UIFont
+  @objc public var speakerOnTitle: Swift.String
+  @objc public var speakerOffTitle: Swift.String
+  @objc public var speakerOffData: Foundation.Data?
+  @objc public var speakerOnData: Foundation.Data?
+  @objc public var speakerIconTopMargin: Swift.Int
+  @objc public var speakerIconRightMargin: Swift.Int
+  @objc public var speakerIconLeftMargin: Swift.Int
+  @objc public var speakerLabelBottomMargin: Swift.Int
+  @objc public var speakerIconTextColor: UIKit.UIColor
+  @objc public var speakerIconBackgroundColor: UIKit.UIColor
+  @objc public var speakerIconTextFontStyle: UIKit.UIFont
+  @objc public var callButtonsPosition: [Swift.Int]
+  @objc public var callButtonsContainerBackgroundColor: UIKit.UIColor
+  @objc public var callButtonsContainerViewHeight: Swift.Int
+  @objc public var callButtonsContainerCornerRadius: Swift.Int
+  @objc public var callButtonsContainerBorderWidth: Swift.Int
+  @objc public var callButtonsContainerBorderColor: UIKit.UIColor
+  @objc public var callButtonsContainerRightMargin: Swift.Int
+  @objc public var callButtonsContainerLeftMargin: Swift.Int
+  @objc public var callButtonsContainerBottomMargin: Swift.Int
+  @objc public var connectingDisclaimerText: Swift.String
+  @objc public var connectingDisclaimerBackgroundColor: UIKit.UIColor
+  @objc public var connectingDisclaimerColor: UIKit.UIColor
+  @objc public var connectingDisclaimerTextAllignMent: UIKit.NSTextAlignment
+  @objc public var connectingDisclaimerFontStyle: UIKit.UIFont
+  @objc public var connectingDisclaimerTextBottomMargin: Swift.Int
+  @objc public var connectingDisclaimerTextLeftMargin: Swift.Int
+  @objc public var connectingDisclaimerTextRightMargin: Swift.Int
+  @objc public var callConnectingText: Swift.String
+  @objc public var callDisconnectedText: Swift.String
+  @objc public var callDisconnectingText: Swift.String
+  @objc public var callFailedText: Swift.String
+  @objc public var callConnectedText: Swift.String
+  @objc public var callStatusText: Swift.String
+  @objc public var callStatusBackgroundColor: UIKit.UIColor
+  @objc public var callStatusColor: UIKit.UIColor
+  @objc public var callStatusTextAllignMent: UIKit.NSTextAlignment
+  @objc public var callStatusFontStyle: UIKit.UIFont
+  @objc public var callStatusTextTopMargin: Swift.Int
+  @objc public var callStatusTextLeftMargin: Swift.Int
+  @objc public var callStatusTextRightMargin: Swift.Int
+  @objc public var callButtonSeperatorViewCornerRadius: Swift.Int
+  @objc public var callButtonSeperatorViewBorderWidth: Swift.Int
+  @objc public var callButtonSeperatorViewBorderColor: UIKit.UIColor
+  @objc public var callButtonSeperatorViewWidth: Swift.Int
+  @objc public var callButtonSeperatorTopMargin: Swift.Int
+  @objc public var callButtonSeperatorBottomMargin: Swift.Int
+  @objc public var callConnectedImage: Foundation.Data?
+  @objc public var callConnectedImageTopMargin: Swift.Int
+  @objc public var callConnectedImageLeftMargin: Swift.Int
+  @objc public var callConnectedImageRightMargin: Swift.Int
+  @objc public var callConnectedImageHeight: Swift.Int
+  @objc public var callConnectedImageBackgroundColor: UIKit.UIColor
+  @objc public var callConnectedTextFontStyle: UIKit.UIFont
+  @objc public var callConnectedTextBackgroundColor: UIKit.UIColor
+  @objc public var callConnectedTextColor: UIKit.UIColor
+  @objc public var callConnectedTextAllignMent: UIKit.NSTextAlignment
+  @objc public var connectingImageLeftMargin: Swift.Int
+  @objc public var connectingImageTopMargin: Swift.Int
+  @objc public var connectingImageWidth: Swift.Int
+  @objc public var connectingImageHeight: Swift.Int
+  @objc public var connectingImageAnimatedImageData: UIKit.UIImage?
+  @objc public var connectingImageBackgroundColor: UIKit.UIColor
+  @objc public var callScreenTitleTextColor: UIKit.UIColor
+  @objc public var callScreenTitleBarColor: UIKit.UIColor
+  @objc public var hideBackButton: Swift.Bool
+  @objc public var callScreenTitleText: Swift.String
+  @objc public var callScreenTitleFontStyle: UIKit.UIFont
+  @objc public var callScreenBackgroundColor: UIKit.UIColor
+  @objc public var logoImageData: Foundation.Data?
+  @objc public var logoImageWidth: Swift.Int
+  @objc public var logoImageHeight: Swift.Int
+  @objc public var titleBarCloseButtonTextName: Swift.String
+  @objc public var titleBarCloseButtonTextColor: UIKit.UIColor
+  @objc public var titleBarCloseButtonAccessibilityMessage: Swift.String
+  @objc public var titleBarCloseButtonImageData: Foundation.Data?
+  @objc public var titleBarCloseButtonWidth: Swift.Int
+  @objc public var titleBarCloseButtonHeight: Swift.Int
+  @objc public var callScreenTitlePosition: NuanceMessagingUI.TitlePosition
+  @objc public var titleBarMinimizeButtonTextName: Swift.String
+  @objc public var titleBarMinimizeButtonTextColor: UIKit.UIColor
+  @objc public var titleBarMinimizeButtonAccessibilityMessage: Swift.String
+  @objc public var titleBarMinimizeButtonImageData: Foundation.Data?
+  @objc public var titleBarMinimizeButtonWidth: Swift.Int
+  @objc public var titleBarMinimizeButtonHeight: Swift.Int
+  @objc public var microphoneDeniedScreenImage: Foundation.Data?
+  @objc public var microphoneDeniedScreenImageHeight: Swift.Int
+  @objc public var microphoneDeniedScreenImageTopMargin: Swift.Int
+  @objc public var microphoneDeniedScreenImageLeftMargin: Swift.Int
+  @objc public var microphoneDeniedScreenImageRightMargin: Swift.Int
+  @objc public var microphoneDeniedScreenStatusText: Swift.String
+  @objc public var microphoneDeniedScreenStatusBackgroundColor: UIKit.UIColor
+  @objc public var microphoneDeniedScreenStatusColor: UIKit.UIColor
+  @objc public var microphoneDeniedScreenStatusTextAllignMent: UIKit.NSTextAlignment
+  @objc public var microphoneDeniedScreenStatusFontStyle: UIKit.UIFont
+  @objc public var microphoneDeniedScreenStatusBottomMargin: Swift.Int
+  @objc public var microphoneDeniedScreenStatusLeftMargin: Swift.Int
+  @objc public var microphoneDeniedScreenStatusRightMargin: Swift.Int
+  @objc public var callExitScreenImage: Foundation.Data?
+  @objc public var callExitScreenImageHeight: Swift.Int
+  @objc public var callExitScreenImageTopMargin: Swift.Int
+  @objc public var callExitScreenImageLeftMargin: Swift.Int
+  @objc public var callExitScreenImageRightMargin: Swift.Int
+  @objc public var callExitScreenAgentNotAvailable: Swift.String
+  @objc public var callExitScreenSuccess: Swift.String
+  @objc public var callExitScreenFailed: Swift.String
+  @objc public var callExitScreenStatusBackgroundColor: UIKit.UIColor
+  @objc public var callExitScreenStatusColor: UIKit.UIColor
+  @objc public var callExitScreenStatusTextAllignMent: UIKit.NSTextAlignment
+  @objc public var callExitScreenStatusFontStyle: UIKit.UIFont
+  @objc public var callExitScreenStatusBottomMargin: Swift.Int
+  @objc public var callExitScreenStatusLeftMargin: Swift.Int
+  @objc public var callExitScreenStatusRightMargin: Swift.Int
+  @objc public var callFailedScreenImage: Foundation.Data?
+  @objc public var callFailedScreenImageHeight: Swift.Int
+  @objc public var callFailedScreenImageTopMargin: Swift.Int
+  @objc public var callFailedScreenImageLeftMargin: Swift.Int
+  @objc public var callFailedScreenImageRightMargin: Swift.Int
+  @objc public var callFailedScreenStatusBackgroundColor: UIKit.UIColor
+  @objc public var callFailedStatusColor: UIKit.UIColor
+  @objc public var callFailedScreenStatusTextAllignMent: UIKit.NSTextAlignment
+  @objc public var callFailedScreenStatusFontStyle: UIKit.UIFont
+  @objc public var callFailedScreenStatusBottomMargin: Swift.Int
+  @objc public var callFailedScreenStatusLeftMargin: Swift.Int
+  @objc public var callFailedScreenStatusRightMargin: Swift.Int
+  @objc public var chatButtonImageData: Foundation.Data?
+  @objc public var chatButtonBorderColor: UIKit.UIColor
+  @objc public var chatButtonBorderWidth: Swift.Int
+  @objc public var chatButtonCornerRadius: Swift.Int
+  @objc public var chatButtonTitle: Swift.String
+  @objc public var chatButtonBackgroundColor: UIKit.UIColor
+  @objc public var chatButtonTextColor: UIKit.UIColor
+  @objc public var chatButtonBottomMargin: Swift.Int
+  @objc public var chatButtonLeftMargin: Swift.Int
+  @objc public var chatButtonRightMargin: Swift.Int
+  @objc public var bottomCloseButtonImageData: Foundation.Data?
+  @objc public var bottomCloseButtonBorderColor: UIKit.UIColor
+  @objc public var bottomCloseButtonBorderWidth: Swift.Int
+  @objc public var bottomCloseButtonCornerRadius: Swift.Int
+  @objc public var bottomCloseButtonTitle: Swift.String
+  @objc public var bottomCloseButtonBackgroundColor: UIKit.UIColor
+  @objc public var bottomCloseButtonTextColor: UIKit.UIColor
+  @objc public var bottomCloseBottomMargin: Swift.Int
+  @objc public var bottomCloseLeftMargin: Swift.Int
+  @objc public var bottomCloseRightMargin: Swift.Int
+  @objc public var host: Swift.String
+  @objc public var authCredID: Swift.String
+  @objc public var nuanceCallInitialText: Swift.String
+  @objc deinit
+}
+extension UIKit.UIColor {
+  public class func color(hexString: Swift.String, alpha: CoreFoundation.CGFloat? = 1.0) -> UIKit.UIColor
+}
+@objc public protocol NuanceMessagingDelegate {
+  @objc optional func onMinimized()
+  @objc optional func onNinaExternalLink(urlLinkMessage: Swift.String)
+  @objc optional func onClosed()
+  @objc optional func onError(state: NuanceMessagingUI.MessagingErrorStates)
+  @objc optional func onDisplayed()
+  @objc optional func onCustomerMessage(isVA: Swift.Bool)
+  @objc optional func onAgentAssigned(name: Swift.String)
+  @objc optional func interceptVAMessage(succesResp: NuanceMessagingCore.GetMessageResponse?)
+  @objc optional func onVAMessage(message: [Swift.AnyHashable : Any])
+  @objc optional func onTitleOption1()
+  @objc optional func onTitleOption2()
+  @objc optional func onEngagementCreated()
+  @objc optional func onEngagementEnded()
+  @objc optional func onConversationResolved()
+  @objc optional func onNewMessage(message: NuanceMessagingCore.GetMessageResponse?)
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class NuanceMessagingViewController : UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func didReceiveMemoryWarning()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var preferredStatusBarStyle: UIKit.UIStatusBarStyle {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public func setTranscriptViewPropeties(properties: NuanceMessagingUI.MessagingViewProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setFooterSeparationViewPropeties(properties: NuanceMessagingUI.FooterSeparationProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setCustomerInputProperties(properties: NuanceMessagingUI.CustomerInputFieldProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setTitleBarProperties(properties: NuanceMessagingUI.TitleBarProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setSendButtonProperties(properties: NuanceMessagingUI.SendButtonProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setStringProperties(properties: NuanceMessagingUI.CustomerInformationMessages)
+  @objc @_Concurrency.MainActor(unsafe) public func setEmailViewProperties(properties: NuanceMessagingUI.EmailViewProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setLoadingViewProperties(properties: NuanceMessagingUI.LoadingViewProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setWebViewSettings(properties: NuanceMessagingUI.WebViewSettings)
+  @objc @_Concurrency.MainActor(unsafe) public func setNinaActionSoundProperties(properties: NuanceMessagingUI.NinaCobraProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setNinaSettingProperties(properties: NinaCobra.NinaSetting)
+  @objc @_Concurrency.MainActor(unsafe) public func setNinaServerConfigurationProperties(properties: NinaCobra.NinaServerConfiguration)
+  @objc @_Concurrency.MainActor(unsafe) public func setMessagingDelegate(delegate: Any)
+  @objc @_Concurrency.MainActor(unsafe) public func setRichContentProperties(properties: NuanceMessagingUI.RichContentProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setFileUploadViewProperties(properties: NuanceMessagingUI.FileUploadViewProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setViewProperties(properties: NuanceMessagingUI.LoadingViewProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func setHtmlText(txt: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) public func setChatHeaderProperties(properties: NuanceMessagingUI.ChatHeaderProperties)
+  @objc @_Concurrency.MainActor(unsafe) public func launchMessagingViewController(params: NuanceMessagingUI.EngageParameters, forAudioCall: Swift.Bool = false) -> NuanceMessagingUI.NuanceMessagingViewController
+  @objc @_Concurrency.MainActor(unsafe) public func restoreMessagingViewController(webview: WebKit.WKWebView?, forAudioCall: Swift.Bool = false) -> NuanceMessagingUI.NuanceMessagingViewController
+  @objc @_Concurrency.MainActor(unsafe) public func minimizeMessaging()
+  @objc @_Concurrency.MainActor(unsafe) public func closeAndDismiss()
+  @objc @_Concurrency.MainActor(unsafe) public func updateMessagingTitle(title: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) public func updateMessagingLogo(data: Foundation.Data)
+  @objc @_Concurrency.MainActor(unsafe) public func updateMessagingTitleAndLogo(title: Swift.String, data: Foundation.Data)
+  @objc @_Concurrency.MainActor(unsafe) public func displayAgentTyping(msg: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) public func addMessageToChatWindow(msg: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) public func addSystemToChatWindow(msg: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) public func clearSystemFromChatWindow()
+  @objc @_Concurrency.MainActor(unsafe) public func addCustomVAMsg(msg: Swift.String, name: Swift.String)
+  @objc @_Concurrency.MainActor(unsafe) public func toggleKeyboardVisiblity(show: Swift.Bool)
+  @available(iOS 5.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(rootViewController: UIKit.UIViewController)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+public func restoreMessagingViewController(webview: WebKit.WKWebView?, forAudioCall: Swift.Bool = false) -> NuanceMessagingUI.NuanceMessagingViewController
+public func launchMessagingViewController(params: NuanceMessagingUI.EngageParameters, forAudioCall: Swift.Bool = false) -> NuanceMessagingUI.NuanceMessagingViewController
+public func launchMessagingViewControllerForHybrid(paramsDict: Swift.Dictionary<Swift.String, Any>, dataPass: Swift.Dictionary<Swift.String, Any> = [:], webview: WebKit.WKWebView) -> NuanceMessagingUI.NuanceMessagingViewController
+extension UIKit.UINavigationController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var childForStatusBarStyle: UIKit.UIViewController? {
+    @objc get
+  }
+}
+@_hasMissingDesignatedInitializers public class ChimeSound {
+  public static let sharedInstance: NuanceMessagingUI.ChimeSound
+  public func initChimeData(soundData: Foundation.NSData?)
+  public func playSound()
+  public func stopSound()
+  @objc deinit
+}
+@objc public enum TitleBarElement : Swift.Int {
+  case close = 0
+  case minimize = 1
+  case email = 2
+  case share = 3
+  case chime = 4
+  case logoImage = 5
+  case option1 = 6
+  case option2 = 7
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum MessagingErrorStates : Swift.Int {
+  case NETWORK_ERROR = 0
+  case AGENT_LEFT = 1
+  case SERVICE_NOT_AVAILABLE = 2
+  case SERVICE_DENIED = 3
+  case TIMEOUT = 4
+  case AGENT_MSG_FAILED = 5
+  case AGENT_LOST = 6
+  case NONE = 7
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum TitlePosition : Swift.Int {
+  case left = 0
+  case center = 1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum LinkButtonPosition : Swift.Int {
+  case left = 0
+  case center = 1
+  case right = 2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class TitleBarProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var statusBarColorLight: Swift.Bool
+  @objc public var messagingBarTitle: Swift.String
+  @objc public var messagingBarBackgroundColor: UIKit.UIColor
+  @objc public var messagingBarTitleColor: UIKit.UIColor
+  @objc public var messagingTitleFontStyle: UIKit.UIFont
+  @objc public var isMessagingTitleBold: Swift.Bool
+  @objc public var shareButtonTextColor: UIKit.UIColor
+  @objc public var shareImageData: Foundation.Data?
+  @objc public var shareTextName: Swift.String
+  @objc public var shareButtonWidth: Swift.Int
+  @objc public var shareButtonHeight: Swift.Int
+  @objc public var option1ButtonTextColor: UIKit.UIColor
+  @objc public var option1ImageData: Foundation.Data?
+  @objc public var option1TextName: Swift.String
+  @objc public var option1ButtonWidth: Swift.Int
+  @objc public var option1ButtonHeight: Swift.Int
+  @objc public var option2ButtonTextColor: UIKit.UIColor
+  @objc public var option2ImageData: Foundation.Data?
+  @objc public var option2TextName: Swift.String
+  @objc public var option2ButtonWidth: Swift.Int
+  @objc public var option2ButtonHeight: Swift.Int
+  @objc public var chimeButtonTextColor: UIKit.UIColor
+  @objc public var chimeOnImageData: Foundation.Data?
+  @objc public var chimeOffImageData: Foundation.Data?
+  @objc public var chimeTextName: Swift.String
+  @objc public var chimeTextOn: Swift.String
+  @objc public var chimeTextOff: Swift.String
+  @objc public var chimeButtonWidth: Swift.Int
+  @objc public var chimeButtonHeight: Swift.Int
+  @objc public var chimeSoundData: Foundation.NSData?
+  @objc public var emailButtonTextColor: UIKit.UIColor
+  @objc public var emailImageData: Foundation.Data?
+  @objc public var emailTextName: Swift.String
+  @objc public var emailButtonWidth: Swift.Int
+  @objc public var emailButtonHeight: Swift.Int
+  @objc public var closeButtonTextColor: UIKit.UIColor
+  @objc public var closeImageData: Foundation.Data?
+  @objc public var closeTextName: Swift.String
+  @objc public var closeButtonWidth: Swift.Int
+  @objc public var closeButtonHeight: Swift.Int
+  @objc public var minimizeButtonTextColor: UIKit.UIColor
+  @objc public var minimizeImageData: Foundation.Data?
+  @objc public var minimizeTextName: Swift.String
+  @objc public var minimizeButtonWidth: Swift.Int
+  @objc public var minimizeButtonHeight: Swift.Int
+  @objc public var minimumSpaceBetweenTitleButton: Swift.Int
+  @objc public var showShareButton: Swift.Bool
+  @objc public var showLogo: Swift.Bool
+  @objc public var logoImageData: Foundation.Data?
+  @objc public var logoImageWidth: Swift.Int
+  @objc public var logoImageHeight: Swift.Int
+  @objc public var leftTitleBarIcons: [Swift.Int]
+  @objc public var rightTitleBarIcons: [Swift.Int]
+  @objc public var setTitlePosition: NuanceMessagingUI.TitlePosition
+  @objc public var isTitleLogoTogetherRequired: Swift.Bool
+  @objc public var titleImageData: Foundation.Data?
+  @objc public var titleImageWidth: Swift.Int
+  @objc public var titleImageHeight: Swift.Int
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class FooterSeparationProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var isSeperationFooterRequired: Swift.Bool
+  @objc public var height: Swift.Int
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class CustomerInputFieldProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var hintText: Swift.String
+  @objc public var borderColor: UIKit.UIColor
+  @objc public var borderWidth: Swift.Int
+  @objc public var cornerRadius: Swift.Int
+  @objc public var inputMessageBackgroundColor: UIKit.UIColor
+  @objc public var textColor: UIKit.UIColor
+  @objc public var placeHolderColor: UIKit.UIColor
+  @objc public var containerBackgroundColor: UIKit.UIColor
+  @objc public var dismissKeyBoardOnReturn: Swift.Bool
+  @objc public var sendMsgOnReturn: Swift.Bool
+  @objc public var textFieldFont: UIKit.UIFont
+  @objc public var inputFieldLeftMargin: Swift.Int
+  @objc public var inputFieldRightMargin: Swift.Int
+  @objc public var inputFieldTopMargin: Swift.Int
+  @objc public var inputFieldBottomMargin: Swift.Int
+  @objc public var textFieldTopPadding: Swift.Int
+  @objc public var textFieldBottomPadding: Swift.Int
+  @objc public var textFieldLeftPadding: Swift.Int
+  @objc public var textFieldRightPadding: Swift.Int
+  @objc public var keyboardType: UIKit.UIKeyboardType
+  @objc public var isDynamicSizeTextFieldRequired: Swift.Bool
+  @objc public var maxLines: Swift.Int
+  @objc public var isCharacterLimitRequired: Swift.Bool
+  @objc public var limitInputChars: Swift.Bool
+  @objc public var limitDisplayThreshold: Swift.Int
+  @objc public var characterLimitForVA: Swift.Int
+  @objc public var characterLimitBottomPadding: Swift.Int
+  @objc public var characterLimitRightPadding: Swift.Int
+  @objc public var characterLimitTopPadding: Swift.Int
+  @objc public var characterLimitViewWidth: Swift.Int
+  @objc public var characterLimitTextColor: UIKit.UIColor
+  @objc public var characterLimitTextFont: UIKit.UIFont
+  @objc public var inputTextAlignment: UIKit.NSTextAlignment
+  @objc public var showSendToolBarButtonInKeyboard: Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class SendButtonProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var buttonImageData: Foundation.Data?
+  @objc public var disableImageData: Foundation.Data?
+  @objc public var borderColor: UIKit.UIColor
+  @objc public var borderWidth: Swift.Int
+  @objc public var cornerRadius: Swift.Int
+  @objc public var buttonTitle: Swift.String
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc public var textColor: UIKit.UIColor
+  @objc public var gradientEffect: [UIKit.UIColor]
+  @objc public var gradientEffectLocations: [Foundation.NSNumber]
+  @objc public var useGradientEffect: Swift.Bool
+  @objc public var buttonFieldRightMargin: Swift.Int
+  @objc public var buttonFieldTopMargin: Swift.Int
+  @objc public var buttonFieldBottomMargin: Swift.Int
+  @objc public var buttonWidth: Swift.Int
+  @objc public var buttonHeight: Swift.Int
+  @objc public var toggleSendStateAfterMsgSend: Swift.Bool
+  @objc public var disableBorderColor: UIKit.UIColor
+  @objc public var disableBorderWidth: Swift.Int
+  @objc public var disableCornerRadius: Swift.Int
+  @objc public var disableButtonTitle: Swift.String
+  @objc public var disableBackgroundColor: UIKit.UIColor
+  @objc public var disableTextColor: UIKit.UIColor
+  @objc public var disableGradientEffect: [UIKit.UIColor]
+  @objc public var disableGradientEffectLocations: [Foundation.NSNumber]
+  @objc public var disableUseGradientEffect: Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class CustomerInformationMessages : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var messagingNotAvailable: Swift.String
+  @objc public var serviceQueued: Swift.String
+  @objc public var agentNowAvailable: Swift.String
+  @objc public var networkNotAvaliable: Swift.String
+  @objc public var networkAvailable: Swift.String
+  @objc public var agentLeftConversation: Swift.String
+  @objc public var agentResolvedConversation: Swift.String
+  @objc public var agentTimedOut: Swift.String
+  @objc public var connectionLost: Swift.String
+  @objc public var serviceDenied: Swift.String
+  @objc public var defaultCustomerName: Swift.String
+  @objc public var closeButtonAccessibilityMessage: Swift.String
+  @objc public var minimizeButtonAccessibilityMessage: Swift.String
+  @objc public var emailButtonAccessibilityMessage: Swift.String
+  @objc public var shareButtonAccessibilityMessage: Swift.String
+  @objc public var option1ButtonAccessibilityMessage: Swift.String
+  @objc public var option2ButtonAccessibilityMessage: Swift.String
+  @objc public var chimeButtonOnAccessibilityMessage: Swift.String
+  @objc public var chimeButtonOffAccessibilityMessage: Swift.String
+  @objc public var sendButtonAccessibilityMessage: Swift.String
+  @objc public var startRecordingAccessibilityMessage: Swift.String
+  @objc public var stopRecordingAccessibilityMessage: Swift.String
+  @objc public var InputTextAccessibilityMessage: Swift.String
+  @objc public var customerSurveyAlertTitle: Swift.String
+  @objc public var customerSurveyAlertMessage: Swift.String
+  @objc public var customerSurveyAlertOKText: Swift.String
+  @objc public var customerSurveyAlertCancelText: Swift.String
+  @objc public var titleAccessibilityMessage: Swift.String
+  @objc public var agentTransfer: Swift.String
+  @objc public var agentTransferConnected: Swift.String
+  @objc public var agentLost: Swift.String
+  @objc public var appBackgroundInfoMsg: Swift.String
+  @objc public var appBackgroundType: Swift.String
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class MessagingViewProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var showOpenerOnConversationResolved: Swift.Bool
+  @objc public var isAllignToBulletPoints: Swift.Bool
+  @objc public var enableDVV: Swift.Bool
+  @objc public var openerLoadingMessage: Swift.String
+  @objc public var openerLoadingMessageTxtColor: UIKit.UIColor
+  @objc public var centerAlignCustomMessageImage: Swift.Bool
+  @objc public var showCustomMessageImage: Swift.Bool
+  @objc public var messageInfoImageWidth: Swift.Int
+  @objc public var messageInfoImageHeight: Swift.Int
+  @objc public var keyboardDismissMode: UIKit.UIScrollView.KeyboardDismissMode
+  @objc public var viewControllerPresentationStyle: UIKit.UIModalPresentationStyle
+  @objc public var hugCustomerMessageContent: Swift.Bool
+  @objc public var hugAgentMessageContent: Swift.Bool
+  @objc public var newMessageAlertFontStyle: UIKit.UIFont
+  @objc public var newMessageAlertText: Swift.String
+  @objc public var newMessageAlertBackgroundColor: UIKit.UIColor
+  @objc public var newMessageAlertTextColor: UIKit.UIColor
+  @objc public var newMessageAlertBottomMargin: Swift.Int
+  @objc public var newMessageAlertLeftMargin: Swift.Int
+  @objc public var newMessageAlertRightMargin: Swift.Int
+  @objc public var newMessageAlertHeight: Swift.Int
+  @objc public var newMessageAlertBorderWidth: Swift.Int
+  @objc public var newMessageAlertCornerRadius: Swift.Int
+  @objc public var newMessageAlertBorderColor: UIKit.UIColor
+  @objc public var isNinaWebRequired: Swift.Bool
+  @objc public var setSpaceBetweenBubble: Swift.Int
+  @objc public var isChatFromBottom: Swift.Bool
+  @objc public var bottomChatBottomPadding: Swift.Int
+  @objc public var delayRenderingVAResponse: Swift.Double
+  @objc public var chatToCallSwitcherProperties: NuanceMessagingUI.ChatToCallPropertieClass?
+  @objc public var messagingTranscriptBackgorundColor: UIKit.UIColor
+  @objc public var agentIconImageData: Foundation.Data?
+  @objc public var defaultOpenerMessage: Swift.String
+  @objc public var isAgentIconRequired: Swift.Bool
+  @objc public var showNameInBubbles: Swift.Bool
+  @objc public var showNameInTimeStamp: Swift.Bool
+  @objc public var agentNameTextColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc public var customerNameTextColor: UIKit.UIColor {
+    @objc get
+    @objc set
+  }
+  @objc public var agentMessageBackgroundColor: UIKit.UIColor
+  @objc public var agentMessageTextColor: UIKit.UIColor
+  @objc public var agentMessageBorderColor: UIKit.UIColor
+  @objc public var agentMessageCornerRadius: Swift.Int
+  @objc public var agentMessageBorderWidth: Swift.Int
+  @objc public var agentMessageFontStyle: UIKit.UIFont
+  @objc public var agentTopPadding: Swift.Int
+  @objc public var agentBottomPadding: Swift.Int
+  @objc public var agentLeftPadding: Swift.Int
+  @objc public var agentRightPadding: Swift.Int
+  @objc public var agentMessageTextAlignment: UIKit.NSTextAlignment
+  @objc public var agentMessageLeftMargin: Swift.Int
+  @objc public var agentMessageRightMargin: Swift.Int
+  @objc public var agentSpeechIcon: Foundation.Data?
+  @objc public var ninaSpeechIcon: Foundation.Data?
+  @objc public var customerMessageBackgroundColor: UIKit.UIColor
+  @objc public var customerMessageTextColor: UIKit.UIColor
+  @objc public var customerMessageBorderColor: UIKit.UIColor
+  @objc public var customerMessageCornerRadius: Swift.Int
+  @objc public var customerMessageBorderWidth: Swift.Int
+  @objc public var customerMessageFontStyle: UIKit.UIFont
+  @objc public var customerTopPadding: Swift.Int
+  @objc public var customerBottomPadding: Swift.Int
+  @objc public var customerLeftPadding: Swift.Int
+  @objc public var customerRightPadding: Swift.Int
+  @objc public var customerMessageLeftMargin: Swift.Int
+  @objc public var customerMessageRightMargin: Swift.Int
+  @objc public var customerSpeechIcon: Foundation.Data?
+  @objc public var customerMessageTextAlignment: UIKit.NSTextAlignment
+  @objc public var systemMessageTextColor: UIKit.UIColor
+  @objc public var agentTypingTextColor: UIKit.UIColor
+  @objc public var agentTypingFontStyle: UIKit.UIFont
+  @objc public var systemMessageFontStyle: UIKit.UIFont
+  @objc public var customerNameFontStyle: UIKit.UIFont
+  @objc public var agentNameFontStyle: UIKit.UIFont
+  @objc public var footerViewHeight: Swift.Int
+  @objc public var systemMessageBackgroundColor: UIKit.UIColor
+  @objc public var systemMessageBorderColor: UIKit.UIColor
+  @objc public var systemMessageCornerRadius: Swift.Int
+  @objc public var systemMessageBorderWidth: Swift.Int
+  @objc public var systemMessageAllignment: UIKit.NSTextAlignment
+  @objc public var systemMessageTopPadding: Swift.Int
+  @objc public var systemMessageBottomPadding: Swift.Int
+  @objc public var systemMessageLeftPadding: Swift.Int
+  @objc public var systemMessageRightPadding: Swift.Int
+  @objc public var persistTransferStartMessage: Swift.Bool
+  @objc public var persistTransferConnectedMessage: Swift.Bool
+  @objc public var agentTypingMessageBackgroundColor: UIKit.UIColor
+  @objc public var agentTypingMessageBorderColor: UIKit.UIColor
+  @objc public var agentTypingMessageCornerRadius: Swift.Int
+  @objc public var agentTypingMessageBorderWidth: Swift.Int
+  @objc public var agentTypingMessageAllignment: UIKit.NSTextAlignment
+  @objc public var agentTypingMessageTopPadding: Swift.Int
+  @objc public var agentTypingMessageBottomPadding: Swift.Int
+  @objc public var agentTypingMessageLeftPadding: Swift.Int
+  @objc public var agentTypingMessageRightPadding: Swift.Int
+  @objc public var agentTypingAccessibilityMessage: Swift.String
+  @objc public var showTypingAnimation: Swift.Bool
+  @objc public var hideStoppedTyping: Swift.Bool
+  @objc public var typingStaticImage: UIKit.UIImage?
+  @objc public var typingStaticImageWidth: Swift.Int
+  @objc public var typingStaticImageHeight: Swift.Int
+  @objc public var typingStaticImageLeftMargin: Swift.Int
+  @objc public var typingStaticImageTopMargin: Swift.Int
+  @objc public var typingStaticImageBackgroundColor: UIKit.UIColor
+  @objc public var typingAnimationImage: UIKit.UIImage?
+  @objc public var typingAnimationImageWidth: Swift.Int
+  @objc public var typingAnimationImageHeight: Swift.Int
+  @objc public var typingAnimationImageLeftMargin: Swift.Int
+  @objc public var typingAnimationImageTopMargin: Swift.Int
+  @objc public var typingAnimationImageBackgroundColor: UIKit.UIColor
+  @objc public var infoMessageLeftMargin: Swift.Int
+  @objc public var infoMessageTopMargin: Swift.Int
+  @objc public var infoMessageRightMargin: Swift.Int
+  @objc public var agentBackgroundImageData: Foundation.Data?
+  @objc public var customerBackgroundImageData: Foundation.Data?
+  @objc public var setConversationBackgroundImage: Swift.Bool
+  @objc public var bubbleAnimationStyle: UIKit.UITableView.RowAnimation
+  @objc public var setSpeachBubbleView: Swift.Bool
+  @objc public var setInLineBubbleView: Swift.Bool
+  @objc public var setAgentBackgroundImageStreachTopInset: Swift.Int
+  @objc public var setAgentBackgroundImageStreachLeftInset: Swift.Int
+  @objc public var setAgentBackgroundImageStreachRightInset: Swift.Int
+  @objc public var setAgentBackgroundImageStreachBottomInset: Swift.Int
+  @objc public var setCustomerBackgroundImageStreachTopInset: Swift.Int
+  @objc public var setCustomerBackgroundImageStreachLeftInset: Swift.Int
+  @objc public var setCustomerBackgroundImageStreachRightInset: Swift.Int
+  @objc public var setCustomerBackgroundImageStreachBottomInset: Swift.Int
+  public var setAgentBackgroundImageStretchingPoint: UIKit.UIEdgeInsets?
+  public var setCustomerBackgroundImageStretchingPoint: UIKit.UIEdgeInsets?
+  @objc public var setMessageTimeStamp: Swift.Bool
+  @objc public var setMessageTimeStampFormat: Swift.String
+  @objc public var agentTimeStampBackgroundColor: UIKit.UIColor
+  @objc public var agentTimeStampTextColor: UIKit.UIColor
+  @objc public var agentTimeStampBorderColor: UIKit.UIColor
+  @objc public var agentTimeStampCornerRadius: Swift.Int
+  @objc public var agentTimeStampBorderWidth: Swift.Int
+  @objc public var agentTimeStampFontStyle: UIKit.UIFont
+  @objc public var agentTimeStampTextAllignment: UIKit.NSTextAlignment
+  @objc public var agentTimeStampLeftPadding: Swift.Int
+  @objc public var agentTimeStampRightPadding: Swift.Int
+  @objc public var agentTimeStampTopPadding: Swift.Int
+  @objc public var agentTimeStampBottomPadding: Swift.Int
+  @objc public var agentTimeStampLeftMargin: Swift.Int
+  @objc public var agentTimeStampRightMargin: Swift.Int
+  @objc public var agentTimeStampTopMargin: Swift.Int
+  @objc public var agentTimeStampBottomMargin: Swift.Int
+  @objc public var customerTimeStampBackgroundColor: UIKit.UIColor
+  @objc public var customerTimeStampTextColor: UIKit.UIColor
+  @objc public var customerTimeStampBorderColor: UIKit.UIColor
+  @objc public var customerTimeStampCornerRadius: Swift.Int
+  @objc public var customerTimeStampBorderWidth: Swift.Int
+  @objc public var customerTimeStampFontStyle: UIKit.UIFont
+  @objc public var customerTimeStampTextAllignment: UIKit.NSTextAlignment
+  @objc public var customerTimeStampLeftPadding: Swift.Int
+  @objc public var customerTimeStampRightPadding: Swift.Int
+  @objc public var customerTimeStampTopPadding: Swift.Int
+  @objc public var customerTimeStampBottomPadding: Swift.Int
+  @objc public var customerTimeStampLeftMargin: Swift.Int
+  @objc public var customerTimeStampRightMargin: Swift.Int
+  @objc public var customerTimeStampTopMargin: Swift.Int
+  @objc public var customerTimeStampBottomMargin: Swift.Int
+  @objc public var setAgentIconImagePosition: Swift.Int
+  @objc public var setCustomerIconImagePosition: Swift.Int
+  @objc public var htmlLinkColor: UIKit.UIColor
+  @objc public var htmlLinkGreyScaleModeColor: UIKit.UIColor
+  @objc public var linkStrokeWidth: Swift.Float
+  @objc public var htmlLinkButtonFont: UIKit.UIFont?
+  @objc public var isAgentShowUrlLookup: Swift.Bool
+  @objc public var isCustomerShowUrlLookup: Swift.Bool
+  @objc public var urlContentTitleTextColor: UIKit.UIColor
+  @objc public var urlContentDetailTextColor: UIKit.UIColor
+  @objc public var urlContentTitleFont: UIKit.UIFont
+  @objc public var urlContentDetailFont: UIKit.UIFont
+  @objc public var urlContentBackgroundMaxHeight: Swift.Int
+  @objc public var urlContentBackgroundViewColor: UIKit.UIColor
+  @objc public var urlContentBackgroundViewLeftMargin: Swift.Int
+  @objc public var urlContentBackgroundViewRightMargin: Swift.Int
+  @objc public var urlContentBackgroundViewTopMargin: Swift.Int
+  @objc public var urlContentImageLeftPandding: Swift.Int
+  @objc public var urlContentImageTopPandding: Swift.Int
+  @objc public var urlContentImageBottomPandding: Swift.Int
+  @objc public var urlContentImageWidth: Swift.Int
+  @objc public var urlContentTitleTopPadding: Swift.Int
+  @objc public var urlContentTitleLeftPadding: Swift.Int
+  @objc public var urlContentTitleRightPadding: Swift.Int
+  @objc public var urlContentTitleHeight: Swift.Int
+  @objc public var urlContentDetailLeftPadding: Swift.Int
+  @objc public var urlContentDetailRightPadding: Swift.Int
+  @objc public var urlContentDetailTopPadding: Swift.Int
+  @objc public var urlContentDetailBottomPadding: Swift.Int
+  @objc public var showSurveyDialog: Swift.Bool
+  @objc public var enablePCSCiv2: Swift.Bool
+  @objc public var htmlFileUrlPathForTranscript: Foundation.URL?
+  @objc public var displayNinaLinksAsButtons: Swift.Bool
+  @objc public var linkButtonBackgroundColor: UIKit.UIColor
+  @objc public var linkButtonTextColor: UIKit.UIColor
+  @objc public var linkButtonCornerRadius: Swift.Int
+  @objc public var linkButtonWidth: Swift.Int
+  @objc public var linkButtonBorderColor: UIKit.UIColor
+  @objc public var linkButtonBorderWidth: Swift.Int
+  @objc public var linkButtonBackgroundImage: Foundation.Data?
+  @objc public var linkButtonTextAllignment: UIKit.NSTextAlignment
+  @objc public var linkButtonLeftPadding: CoreFoundation.CGFloat
+  @objc public var linkButtonRightPadding: CoreFoundation.CGFloat
+  @objc public var agentTypingMessage: Swift.String
+  @objc public var agentStoppedTypingMessage: Swift.String
+  @objc public var ignoreDefaultChime: Swift.Bool
+  @objc public var playVoiceOverOnRestore: Swift.Bool
+  @objc public var showFirstImageOut: Swift.Bool
+  @objc public var vaImageBorderWidth: Swift.Int
+  @objc public var vaImageCornerRadius: Swift.Int
+  @objc public var vaImageLeftMargin: Swift.Int
+  @objc public var vaImageRigthMargin: Swift.Int
+  @objc public var vaImageBorderColor: UIKit.UIColor
+  @objc public var vaImageBackgroundColor: UIKit.UIColor
+  @objc public var vaImageheight: Swift.Int
+  @objc public var vaImageMode: UIKit.UIView.ContentMode
+  @objc public var inlineBackgroundColor: UIKit.UIColor
+  @objc public var inlineImageheight: Swift.Int
+  @objc public var inlineImagewidth: Swift.Int
+  @objc public var inlineImageMode: UIKit.UIView.ContentMode
+  @objc public var showAsyncHeader: Swift.Bool
+  @objc public var showAsyncAgentExit: Swift.Bool
+  @objc public var showAsyncAgentResoved: Swift.Bool
+  @objc public var asyncHeaderBorderColor: UIKit.UIColor
+  @objc public var asyncHeaderBackgroundColor: UIKit.UIColor
+  @objc public var asyncHeaderBorderWidth: Swift.Int
+  @objc public var asyncHeaderCornerRadius: Swift.Int
+  @objc public var asyncHeaderLeftMargin: Swift.Int
+  @objc public var asyncHeaderRigthMargin: Swift.Int
+  @objc public var asyncHeaderTopMargin: Swift.Int
+  @objc public var asyncHeaderBottomMargin: Swift.Int
+  @objc public var asyncHeaderHeight: Swift.Int
+  @objc public var asyncHeaderTextFontStyle: UIKit.UIFont
+  @objc public var asyncHeaderText: Swift.String
+  @objc public var groupMsgs: Swift.Bool
+  @objc public var spaceBetweenGroupingCells: Swift.Int
+  @objc public var displayTransferStatusMessages: Swift.Bool
+  @objc public var displayQueuedMessagesInAsync: Swift.Bool
+  @objc public var showAvatarForRichWidget: Swift.Bool
+  @objc public var resetMsgCounterVAExit: Swift.Bool
+  @objc public var showActivityIndicator: Swift.Bool
+  @objc public var delegateDeeplink: Swift.Bool
+  @objc public var showOpenerTextInAsync: Swift.Bool
+  @objc public var sendResolveCommand: Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class EngageParameters : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var siteID: Swift.String?
+  @objc public var agentGroupID: Swift.String?
+  @objc public var businessUnitID: Swift.String?
+  @objc public var businessRuleID: Swift.String?
+  @objc public var initialMessage: Swift.String?
+  @objc public var openerText: Swift.String?
+  @objc public var brName: Swift.String?
+  @objc public var autoID: Foundation.NSNumber?
+  @objc public var pageID: Foundation.NSNumber?
+  @objc public var priority: Foundation.NSNumber?
+  @objc public var qmSpecID: Foundation.NSNumber?
+  @objc public var qt: Foundation.NSNumber?
+  @objc public var scriptID: Swift.String?
+  @objc public var isAsyncEngagement: Swift.Bool
+  @objc public var asyncMode: Swift.String
+  @objc public var asyncDays: Swift.String?
+  @objc public var customerName: Swift.String?
+  @objc public var agentOutcome: Swift.String?
+  @objc public var automatonDataPass: Swift.String?
+  @objc public var automatonDataMap: Swift.String?
+  @objc public var brAttributes: Swift.String?
+  @objc public var dataPass: [Swift.String : Swift.String]?
+  @objc public var agentAttributes: [Swift.String : Swift.String]?
+  @objc public var agentAssistedCount: Swift.Int
+  @objc public var customerAssistedCount: Swift.Int
+  @objc public var pcs_agent_count: Swift.Int
+  @objc public var pcs_customer_count: Swift.Int
+  @objc public var openerID: Foundation.NSNumber?
+  @objc public var openerName: Swift.String?
+  @objc public var callType: Swift.String?
+  @objc public var closeOnEnd: Swift.String?
+  @objc public var host: Swift.String?
+  @objc public var authKeyId: Swift.String?
+  @objc public var emailSpecID: Swift.String?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class WebViewSettings : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var WVdomains: [Swift.String]?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class EmailViewProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var placeholderPadding: [CoreFoundation.CGFloat]
+  @objc public var transperentBackgroundColorOpacity: Swift.Float
+  @objc public var transperentBackgroundColor: UIKit.UIColor
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc public var emailPopupHeight: Swift.Double
+  @objc public var emailPopupHeightAtLandscape: Swift.Double
+  @objc public var titleBarText: Swift.String
+  @objc public var titleBarTextColor: UIKit.UIColor
+  @objc public var titleBarTextFontStyle: UIKit.UIFont
+  @objc public var titleBarTextAllignment: UIKit.NSTextAlignment
+  @objc public var descriptionText: Swift.String
+  @objc public var descriptionTextColor: UIKit.UIColor
+  @objc public var descriptionTextFontStyle: UIKit.UIFont
+  @objc public var descriptionTextAllignment: UIKit.NSTextAlignment
+  @objc public var cancelButtonText: Swift.String
+  @objc public var cancelButtonBackgroundColor: UIKit.UIColor
+  @objc public var cancelButtonBackgroundViewColor: UIKit.UIColor
+  @objc public var cancelButtonTextColor: UIKit.UIColor
+  @objc public var cancelButtonFontStyle: UIKit.UIFont
+  @objc public var buttonsViewHeight: Swift.Int
+  @objc public var buttonInBetweenBorderWidth: Swift.Int
+  @objc public var buttonViewTopBorderWidth: Swift.Int
+  @objc public var buttonBorderColor: UIKit.UIColor
+  @objc public var sendButtonTextColor: UIKit.UIColor
+  @objc public var sendButtonText: Swift.String
+  @objc public var sendButtonBackgroundColor: UIKit.UIColor
+  @objc public var sendButtonBackgroundViewColor: UIKit.UIColor
+  @objc public var sendButtonFontStyle: UIKit.UIFont
+  @objc public var emailTextFieldCornerRadius: Swift.Int
+  @objc public var emailTextFieldBorderWidth: Swift.Int
+  @objc public var emailTextFieldBorderColor: UIKit.UIColor
+  @objc public var emailTextFieldColor: UIKit.UIColor
+  @objc public var isErrorImageRequired: Swift.Bool
+  @objc public var emailTextFieldFontStyle: UIKit.UIFont
+  @objc public var emailTextFieldAccessibilityLabel: Swift.String
+  @objc public var emptyEmailAddressErrorMessage: Swift.String
+  @objc public var invalidEmailAddressErrorMessage: Swift.String
+  @objc public var errorMessageTextColor: UIKit.UIColor
+  @objc public var emailHintText: Swift.String
+  @objc public var emailErrorImage: Foundation.Data?
+  @objc public var emailErrorFontStyle: UIKit.UIFont
+  @objc public var emailErrorImageHeight: Swift.Int
+  @objc public var emailErrorImageWidth: Swift.Int
+  @objc public var errorFieldBottomSpacing: Swift.Int
+  @objc public var errorFieldBottomSpacingAtLandscape: Swift.Int
+  @objc public var emailViewCornerRadius: Swift.Int
+  @objc public var emailViewBorderWidth: Swift.Int
+  @objc public var emailViewBorderColor: UIKit.UIColor
+  @objc public var mailSentFailureErrorMessage: Swift.String
+  @objc public var emailSpecID: Swift.String?
+  @objc public var emailFieldMaxChars: Swift.Int
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class LoadingViewProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var showPreviousMessageLoading: Swift.Bool
+  @objc public var backgroundColor: UIKit.UIColor
+  @objc public var backgroundColorOpacity: Swift.Float
+  @objc public var loadingMessage: Swift.String
+  @objc public var loadingMessageColor: UIKit.UIColor
+  @objc public var displayTextInBold: Swift.Bool
+  @objc public var displayTextInItalic: Swift.Bool
+  @objc public var messageFontStyle: UIKit.UIFont
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class NinaCobraProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var isAsrTTSRequired: Swift.Bool
+  @objc public var showNinaAnimInCenter: Swift.Bool
+  @objc public var ninaAnimCenterHolderHeight: Swift.Int
+  @objc public var ninaAnimCenterHolderColor: UIKit.UIColor
+  @objc public var ninaCenterViewBackgroundColor: UIKit.UIColor
+  @objc public var enableContinousListening: Swift.Bool
+  @objc public var playTTSOnRestore: Swift.Bool
+  @objc public var playTTSOnlyOnASRInput: Swift.Bool
+  @objc public var playOpener: Swift.Bool
+  @objc public var successChimeSoundData: Foundation.NSData?
+  @objc public var startListeningSoundData: Foundation.NSData?
+  @objc public var errorChimeSoundData: Foundation.NSData?
+  @objc public var connectionSuccessChimeSoundData: Foundation.NSData?
+  @objc public var connectionFailedChimeSoundData: Foundation.NSData?
+  @objc public var ninaProcessingErrorText: Swift.String
+  @objc public var ninaProcessingViewBackgroundColor: UIKit.UIColor
+  @objc public var ninaProcessingViewLeftMargin: Swift.Int
+  @objc public var ninaProcessingViewRightMargin: Swift.Int
+  @objc public var ninaProcessingViewTopMargin: Swift.Int
+  @objc public var ninaProcessingViewBottomMargin: Swift.Int
+  @objc public var ninaProcessingText: Swift.String
+  @objc public var ninaProcessingTextColor: UIKit.UIColor
+  @objc public var ninaProcessingTextBackgroundColor: UIKit.UIColor
+  @objc public var ninaProcessingTextFontStyle: UIKit.UIFont
+  @objc public var ninaProcessingTextAllignment: UIKit.NSTextAlignment
+  @objc public var ninaProcessingTextLeftMargin: Swift.Int
+  @objc public var ninaProcessingTextRightMargin: Swift.Int
+  @objc public var ninaProcessingTextTopMargin: Swift.Int
+  @objc public var ninaProcessingTextBottomMargin: Swift.Int
+  @objc public var ninaNoInternetText: Swift.String
+  @objc public var ninaOverlayTextColor: UIKit.UIColor
+  @objc public var ninaOverlayBackgroundColor: UIKit.UIColor
+  @objc public var ninaOverlayOpacity: Swift.Float
+  @objc public var ninaOverlayFontStyle: UIKit.UIFont
+  @objc public var ninaNoInternetImage: UIKit.UIImage?
+  @objc public var ninaSleepingAnimationImage: UIKit.UIImage?
+  @objc public var ninaProcessingAnimationImage: UIKit.UIImage?
+  @objc public var ninaListeningAnimationImage: UIKit.UIImage?
+  @objc public var ninaAlertAnimationImage: UIKit.UIImage?
+  @objc public var ninaSucessAnimationImage: UIKit.UIImage?
+  @objc public var ninaRecordingEnergyPromptImages: Foundation.NSMutableArray?
+  @objc public var ninaIdleStaticImage: UIKit.UIImage?
+  @objc public var ninaAnimCenterBackgroundImage: UIKit.UIImage?
+  @objc public var ninaWakeupWordRequired: Swift.Bool
+  @objc public var ninaWakeupWordAcmodFilename: Swift.String
+  @objc public var ninaWakeupWordClcFilename: Swift.String
+  @objc public var ninaWakeupWordArray: [Swift.String]?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class FileUploadViewProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var selectFileButtonBackgroundColor: UIKit.UIColor
+  @objc public var selectPhotoButtonBackgroundColor: UIKit.UIColor
+  @objc public var closeButtonBackgroundColor: UIKit.UIColor
+  @objc public var selectFileButtonTitleColor: UIKit.UIColor
+  @objc public var selectPhotoButtonTitleColor: UIKit.UIColor
+  @objc public var closeButtonTitleColor: UIKit.UIColor
+  @objc public var selectFileButtonBorderColor: UIKit.UIColor
+  @objc public var selectPhotoButtonBorderColor: UIKit.UIColor
+  @objc public var closeButtonBorderColor: UIKit.UIColor
+  @objc public var selectFileButtonBorderWidth: CoreFoundation.CGFloat
+  @objc public var selectPhotoButtonBorderWidth: CoreFoundation.CGFloat
+  @objc public var closeButtonBorderWidth: CoreFoundation.CGFloat
+  @objc public var selectFileButtonCornerRadius: CoreFoundation.CGFloat
+  @objc public var selectPhotoButtonCornerRadius: CoreFoundation.CGFloat
+  @objc public var closeButtonCornerRadius: CoreFoundation.CGFloat
+  @objc public var normalMessageTextColor: UIKit.UIColor
+  @objc public var errorMessageTextColor: UIKit.UIColor
+  @objc public var fileUploadDisclaimerText: Swift.String
+  @objc public var fileUploadSelectFileButtonTitle: Swift.String
+  @objc public var fileUploadSelectPhotoButtonTitle: Swift.String
+  @objc public var fileUplaodCloseButtonTitle: Swift.String
+  @objc public var fileTypeNotAllowedErrorMessage: Swift.String
+  @objc public var fileTooLargeErrorMessage: Swift.String
+  @objc public var fileUploadFailureErrorMessage: Swift.String
+  @objc public var fileUploadRetryMessage: Swift.String
+  @objc public var fileUploadSuccessMessage: Swift.String
+  @objc public var fileUploadRetryButtonTitle: Swift.String
+  @objc public var fileUploadCancelRetryButtonTitle: Swift.String
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ProgressViewProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var displayProgressText: Swift.Bool
+  @objc public var displayMessageText: Swift.Bool
+  @objc public var messageTextFont: UIKit.UIFont
+  @objc public var progressTextFont: UIKit.UIFont
+  @objc public var messageTextColor: UIKit.UIColor
+  @objc public var progressTextColor: UIKit.UIColor
+  @objc public var messageText: Swift.String
+  @objc public var progressTextFormat: Swift.String
+  @objc public var progressTintColor: UIKit.UIColor
+  @objc public var trackTintColor: UIKit.UIColor
+  @objc public var progressViewHeight: CoreFoundation.CGFloat
+  @objc public var progressViewWidth: CoreFoundation.CGFloat
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class RichContentProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var formWidgetBackgroundColor: UIKit.UIColor
+  @objc public var formWidgetTypeLeftMargin: Swift.Int
+  @objc public var formWidgetTypeRightMargin: Swift.Int
+  @objc public var formWidgetTypePadding: Swift.Int
+  @objc public var formWidgetTypeTopMargin: Swift.Int
+  @objc public var formWidgetTypeBottomMargin: Swift.Int
+  @objc public var receiptWidgetBackgroundColor: UIKit.UIColor
+  @objc public var receiptWidgetTypeLeftMargin: Swift.Int
+  @objc public var receiptWidgetTypeRightMargin: Swift.Int
+  @objc public var receiptWidgetTypeTopMargin: Swift.Int
+  @objc public var receiptWidgetTypeBottomMargin: Swift.Int
+  @objc public var cardWidgetBackgroundColor: UIKit.UIColor
+  @objc public var cardWidgetTypeLeftMargin: Swift.Int
+  @objc public var cardWidgetTypeRightMargin: Swift.Int
+  @objc public var cardWidgetTypePadding: Swift.Int
+  @objc public var cardWidgetTypeTopMargin: Swift.Int
+  @objc public var cardWidgetTypeBottomMargin: Swift.Int
+  @objc public var quickreplyWidgetBackgroundColor: UIKit.UIColor
+  @objc public var quickreplyWidgetTypeLeftMargin: Swift.Int
+  @objc public var quickreplyWidgetTypeRightMargin: Swift.Int
+  @objc public var quickreplyWidgetTypePadding: Swift.Int
+  @objc public var quickreplyWidgetTypeTopMargin: Swift.Int
+  @objc public var quickreplyWidgetTypeBottomMargin: Swift.Int
+  @objc public var caroselWidgetBackgroundColor: UIKit.UIColor
+  @objc public var caroselWidgetTypeLeftMargin: Swift.Int
+  @objc public var caroselWidgetTypeRightMargin: Swift.Int
+  @objc public var caroselWidgetTypePadding: Swift.Int
+  @objc public var caroselWidgetTypeTopMargin: Swift.Int
+  @objc public var caroselWidgetTypeBottomMargin: Swift.Int
+  @objc public var jsonStirng: Swift.String
+  @objc public var jsonStyleStirng: Swift.String
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class ChatHeaderProperties : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public var showDisclaimerHeader: Swift.Bool
+  @objc public var autoHideDisclaimerHeader: Swift.Bool
+  @objc public var autoHideHeaderTime: Swift.Int
+  @objc public var disclaimerText: Swift.String
+  @objc public var disclaimerTextColor: UIKit.UIColor
+  @objc public var disclaimerTextFontStyle: UIKit.UIFont
+  @objc public var disclaimerTextAlignment: UIKit.NSTextAlignment
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class FileUploadViewController : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension NuanceMessagingUI.FileUploadViewController : UIKit.UIDocumentPickerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func documentPicker(_ controller: UIKit.UIDocumentPickerViewController, didPickDocumentsAt urls: [Foundation.URL])
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func documentPicker(_ controller: UIKit.UIDocumentPickerViewController, didPickDocumentAt url: Foundation.URL)
+}
+extension NuanceMessagingUI.FileUploadViewController : UIKit.UIImagePickerControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func imagePickerController(_ picker: UIKit.UIImagePickerController, didFinishPickingMediaWithInfo info: [UIKit.UIImagePickerController.InfoKey : Any])
+}
+extension NuanceMessagingUI.FileUploadViewController : UIKit.UINavigationControllerDelegate {
+}
+extension NuanceMessagingUI.Reachability.Connection : Swift.Equatable {}
+extension NuanceMessagingUI.Reachability.Connection : Swift.Hashable {}
+extension NuanceMessagingUI.CallButtonPosition : Swift.Equatable {}
+extension NuanceMessagingUI.CallButtonPosition : Swift.Hashable {}
+extension NuanceMessagingUI.CallButtonPosition : Swift.RawRepresentable {}
+extension NuanceMessagingUI.TitleBarElement : Swift.Equatable {}
+extension NuanceMessagingUI.TitleBarElement : Swift.Hashable {}
+extension NuanceMessagingUI.TitleBarElement : Swift.RawRepresentable {}
+extension NuanceMessagingUI.MessagingErrorStates : Swift.Equatable {}
+extension NuanceMessagingUI.MessagingErrorStates : Swift.Hashable {}
+extension NuanceMessagingUI.MessagingErrorStates : Swift.RawRepresentable {}
+extension NuanceMessagingUI.TitlePosition : Swift.Equatable {}
+extension NuanceMessagingUI.TitlePosition : Swift.Hashable {}
+extension NuanceMessagingUI.TitlePosition : Swift.RawRepresentable {}
+extension NuanceMessagingUI.LinkButtonPosition : Swift.Equatable {}
+extension NuanceMessagingUI.LinkButtonPosition : Swift.Hashable {}
+extension NuanceMessagingUI.LinkButtonPosition : Swift.RawRepresentable {}

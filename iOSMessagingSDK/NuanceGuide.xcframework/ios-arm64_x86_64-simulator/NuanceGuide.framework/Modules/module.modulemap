@@ -1,0 +1,6 @@
+framework module NuanceGuide {
+  umbrella header "NuanceGuide.h"
+  export *
+
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module NuanceMessagingCore {
+  umbrella header "NuanceMessagingCore.h"
+  export *
+
+  module * { export * }
+}

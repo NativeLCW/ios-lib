@@ -1,0 +1,6 @@
+framework module NinaCobra {
+  umbrella header "NinaCobra.h"
+  export *
+
+  module * { export * }
+}
